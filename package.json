@@ -1,0 +1,15 @@
+{
+	"name": "google-calendar-event-creator",
+	"version": "0.0.1",
+	"main": "dist/index.html",
+	"author": "Shahab Movahhedi",
+	"license": "MIT",
+	"private": false,
+	"dependencies": {
+		"@types/jquery": "^3.5.16",
+		"jquery": "^3.6.3",
+		"lestin": "^0.0.5",
+		"typescript": "^4.9.5",
+		"vite": "^4.1.2"
+	}
+}
