@@ -1,4 +1,4 @@
-import $ from "jquery";
+import $ from "jquery/dist/jquery.slim";
 
 let Q_text, Who, CourseName, Q_details, result, Weekday, StartTime, EndTime, StartDate, Q_dates,
 	Q_crm = "BUSY",
