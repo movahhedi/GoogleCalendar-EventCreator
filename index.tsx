@@ -1,9 +1,17 @@
 import $ from "jquery/dist/jquery.slim";
 
+const People = [
+	["SHM", "شهاب"],
+	["MHD", "محمدحسین دیبائی"],
+	["MSM", "محمد شکوری"],
+	["MHP", "محمدحسین پروینی"],
+	["ABA", "احمد"],
+];
+
 let Q_text, Who, CourseName, Q_details, result, Weekday, StartTime, EndTime, StartDate, Q_dates,
 	Q_crm = "BUSY",
 	Q_trp = "true",
-	recur = "RRULE:FREQ=WEEKLY;UNTIL=20230630;BYDAY=",
+	recur = "RRULE:FREQ=WEEKLY;UNTIL=20240112;BYDAY=",
 	LinkPrefix = "https://calendar.google.com/calendar/u/0/r/eventedit",
 	Weekday_Int2Word = {
 		0: "SA",
@@ -16,20 +24,20 @@ let Q_text, Who, CourseName, Q_details, result, Weekday, StartTime, EndTime, Sta
 	};
 
 function CreateLink() {
-	Who = ($("#Who").val() as string).trim();
-	Q_details = ($("#Details").val() as string).trim();
-	CourseName = ($("#CourseName").val() as string).trim();
-	Weekday = parseInt($("#Weekday").val() as string);
-	StartDate = `202302${11 + Weekday}`,
-	StartTime = ($("#StartTime").val() as string).trim().replace(":", "").padEnd(4, "0");
-	EndTime = ($("#EndTime").val() as string).trim().replace(":", "").padEnd(4, "0");
+	Who = ((document.getElementById("Who") as HTMLInputElement).value as string).trim();
+	Q_details = ((document.getElementById("Details") as HTMLInputElement).value as string).trim();
+	CourseName = ((document.getElementById("CourseName") as HTMLInputElement).value as string).trim();
+	Weekday = parseInt((document.getElementById("Weekday") as HTMLInputElement).value as string);
+	StartDate = `202309${23 + Weekday}`,
+	StartTime = ((document.getElementById("StartTime") as HTMLInputElement).value as string).trim().replace(":", "").padEnd(4, "0");
+	EndTime = ((document.getElementById("EndTime") as HTMLInputElement).value as string).trim().replace(":", "").padEnd(4, "0");
 	Q_dates = `${StartDate}T${StartTime}00/${StartDate}T${EndTime}00`;
 	Q_text = `${Who}: ${CourseName}`
 	Q_text = `${Who}: ${CourseName}`
 
 	result = `${LinkPrefix}?text=${Q_text}&dates=${Q_dates}&details=${Q_details}&crm=${Q_crm}&trp=${Q_trp}&recur=${recur + Weekday_Int2Word[Weekday]}`;
 
-	$("#Link").attr("href", result);
+	(document.getElementById("Link") as HTMLAnchorElement).href = result;
 	console.log(result);
 }
 
@@ -39,11 +47,10 @@ const InitialBody = <div>
 		<div>
 			<label htmlFor="Who">Who</label>
 			<select id="Who" onInput={CreateLink}>
-				<option value="SHM">SHM</option>
-				<option value="MHD">MHD</option>
-				<option value="SMY">SMY</option>
-				<option value="AMA">AMA</option>
-				<option value="SAH">SAH</option>
+				<option value=""></option>
+				{People.map((i) => (
+					<option value={i[0]}>{i[1]}</option>
+				))}
 			</select>
 		</div>
 		<div>
