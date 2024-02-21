@@ -4,14 +4,13 @@ const People = [
 	["SHM", "شهاب"],
 	["MHD", "محمدحسین دیبائی"],
 	["MSM", "محمد شکوری"],
-	["MHP", "محمدحسین پروینی"],
-	["ABA", "احمد"],
+	["HGB", "حنانه گوهری"],
 ];
 
 let Q_text, Who, CourseName, Q_details, result, Weekday, StartTime, EndTime, StartDate, Q_dates,
 	Q_crm = "BUSY",
 	Q_trp = "true",
-	recur = "RRULE:FREQ=WEEKLY;UNTIL=20240112;BYDAY=",
+	recur = "RRULE:FREQ=WEEKLY;UNTIL=20240621;BYDAY=",
 	LinkPrefix = "https://calendar.google.com/calendar/u/0/r/eventedit",
 	Weekday_Int2Word = {
 		0: "SA",
