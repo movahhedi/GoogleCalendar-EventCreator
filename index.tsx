@@ -10,7 +10,7 @@ const People = [
 let Q_text, Who, CourseName, Q_details, result, Weekday, StartTime, EndTime, StartDate, Q_dates,
 	Q_crm = "BUSY",
 	Q_trp = "true",
-	recur = "RRULE:FREQ=WEEKLY;UNTIL=20240621;BYDAY=",
+	recur = "RRULE:FREQ=WEEKLY;UNTIL=20250110;BYDAY=",
 	LinkPrefix = "https://calendar.google.com/calendar/u/0/r/eventedit",
 	Weekday_Int2Word = {
 		0: "SA",
@@ -27,7 +27,7 @@ function CreateLink() {
 	Q_details = ((document.getElementById("Details") as HTMLInputElement).value as string).trim();
 	CourseName = ((document.getElementById("CourseName") as HTMLInputElement).value as string).trim();
 	Weekday = parseInt((document.getElementById("Weekday") as HTMLInputElement).value as string);
-	StartDate = `202402${17 + Weekday}`,
+	StartDate = `202409${7 + Weekday}`,
 	StartTime = ((document.getElementById("StartTime") as HTMLInputElement).value as string).trim().replace(":", "").padEnd(4, "0");
 	EndTime = ((document.getElementById("EndTime") as HTMLInputElement).value as string).trim().replace(":", "").padEnd(4, "0");
 	Q_dates = `${StartDate}T${StartTime}00/${StartDate}T${EndTime}00`;
