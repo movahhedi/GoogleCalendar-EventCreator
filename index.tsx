@@ -27,7 +27,7 @@ function CreateLink() {
 	Q_details = ((document.getElementById("Details") as HTMLInputElement).value as string).trim();
 	CourseName = ((document.getElementById("CourseName") as HTMLInputElement).value as string).trim();
 	Weekday = parseInt((document.getElementById("Weekday") as HTMLInputElement).value as string);
-	StartDate = `202409${7 + Weekday}`,
+	StartDate = `202409${(7 + Weekday).toString().padStart(2, "0")}`,
 	StartTime = ((document.getElementById("StartTime") as HTMLInputElement).value as string).trim().replace(":", "").padEnd(4, "0");
 	EndTime = ((document.getElementById("EndTime") as HTMLInputElement).value as string).trim().replace(":", "").padEnd(4, "0");
 	Q_dates = `${StartDate}T${StartTime}00/${StartDate}T${EndTime}00`;
